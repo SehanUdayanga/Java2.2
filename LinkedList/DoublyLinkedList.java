@@ -145,6 +145,25 @@ class DoublyLinkedListADT {
             System.out.println();
         }
     }
+
+    public void displayReverse(){
+        if (isEmpty()) {
+            System.out.println("LInklist is empty");
+        }else{
+            Node current =head;
+            while (current.next!= null) {
+                current=current.next;
+            }
+           
+
+            while (current.prev!=null) {
+               System.out.print(current.data);
+                current=current.prev;
+                 
+            }
+            System.out.println(current.data);
+        }
+    }
 }
 
 public class DoublyLinkedList {
@@ -155,24 +174,25 @@ public class DoublyLinkedList {
         linkedList.insertAtFront(2);
         linkedList.insertAtFront(1);
 
-        linkedList.display(); // Output: 1 2 3
+        // linkedList.display(); // Output: 1 2 3
 
         linkedList.insertAtEnd(4);
         linkedList.insertAtEnd(5);
 
         linkedList.display(); // Output: 1 2 3 4 5
 
-        linkedList.insertAtIndex(10, 2);
+        // linkedList.insertAtIndex(10, 2);
 
-        linkedList.display(); // Output: 1 2 10 3 4 5
+        // linkedList.display(); // Output: 1 2 10 3 4 5
 
-        linkedList.deleteAtFront();
-        linkedList.deleteAtEnd();
+        // linkedList.deleteAtFront();
+        // linkedList.deleteAtEnd();
 
-        linkedList.display(); // Output: 2 10 3 4
+        // linkedList.display(); // Output: 2 10 3 4
 
-        linkedList.deleteAtIndex(2);
+        // linkedList.deleteAtIndex(2);
 
-        linkedList.display(); // Output: 2 10 4
+        // linkedList.display(); // Output: 2 10 4
+        linkedList.displayReverse();
     }
 }
