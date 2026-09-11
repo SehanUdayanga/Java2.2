@@ -38,22 +38,63 @@ class TreeADT {
         }
     }
 
-    public void inOrderTraversal(int index) {
 
-        // Stop when index goes outside the tree
+    // PREORDER
+    // Root → Left → Right
+    public void preOrderTraversal(int index) {
+
         if (index >= size) {
             return;
         }
 
-        // Left subtree
+        // Root
+        System.out.print(arr[index] + " ");
+
+        // Left
+        preOrderTraversal(2 * index + 1);
+
+        // Right
+        preOrderTraversal(2 * index + 2);
+    }
+
+
+    // INORDER
+    // Left → Root → Right
+    public void inOrderTraversal(int index) {
+
+        if (index >= size) {
+            return;
+        }
+
+        // Left
         inOrderTraversal(2 * index + 1);
 
         // Root
         System.out.print(arr[index] + " ");
 
-        // Right subtree
+        // Right
         inOrderTraversal(2 * index + 2);
     }
+
+
+    // POSTORDER
+    // Left → Right → Root
+    public void postOrderTraversal(int index) {
+
+        if (index >= size) {
+            return;
+        }
+
+        // Left
+        postOrderTraversal(2 * index + 1);
+
+        // Right
+        postOrderTraversal(2 * index + 2);
+
+        // Root
+        System.out.print(arr[index] + " ");
+    }
+
 
     public static void main(String[] args) {
 
@@ -67,10 +108,20 @@ class TreeADT {
         tree.insert(9);
         tree.insert(1);
 
-        System.out.println("Array:");
+
+        System.out.print("Array: ");
         tree.display();
 
-        System.out.println("Inorder:");
+
+        System.out.print("Preorder: ");
+        tree.preOrderTraversal(0);
+
+
+        System.out.print("\nInorder: ");
         tree.inOrderTraversal(0);
+
+
+        System.out.print("\nPostorder: ");
+        tree.postOrderTraversal(0);
     }
 }
